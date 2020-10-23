@@ -1,4 +1,4 @@
-# Flask_Todo_APP
-
+# Flask Todo APP
 
 ![Screenshot](todo_flask.png)
+
