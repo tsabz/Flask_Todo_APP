@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>todo app</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </head>
+    <body style="background: black">
+        <div style="margin-top: 50px" class="ui container">
+        <h1 style="color: limegreen" class="ui center aligned header">TODO APP</h1>
+        <form class="ui form" action="/add", method="post">
+            <div class="field">
+                <label style="color: limegreen" for="title">Enter Here</label>
+                <input style="background: rgb(255, 255, 255)" type="text" name="title" placeholder="Enter Todo...">
+                <br>
+                <button class="ui inverted teal button" type="submit">Add</button>
+            </div>
+
+        </form>
+
+        {% for todo in todo_list %}
+            <div style="background: black" class="ui segment">
+            <p style="color:rgb(216, 216, 216)">{{todo.id}} | {{todo.title}}</p>
+
+            {% if todo.complete == False %}
+                <span class="ui inverted red label">Not Complete</span>
+            {% else %}
+                <span class="ui inverted green label">Completed</span>
+            {% endif%}
+
+            <a class="ui inverted violet button" href="/update/{{todo.id}}">Update</a>
+            <a class="ui inverted red button" href="/delete/{{todo.id}}">Delete</a>
+        </div>
+        {% endfor%}
+        </div>
+    </body>
+</html>
