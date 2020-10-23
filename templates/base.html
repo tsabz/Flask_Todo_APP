@@ -28,7 +28,7 @@
 
         {% for todo in todo_list %}
             <div style="background: black" class="ui segment">
-            <p style="color:rgb(216, 216, 216)">{{todo.id}} | {{todo.title}}</p>
+            <p style="color:rgb(216, 216, 216)">{{todo.title}}</p>
 
             {% if todo.complete == False %}
                 <span class="ui inverted red label">Not Complete</span>
